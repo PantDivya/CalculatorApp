@@ -1,7 +1,8 @@
 "# Calculator_App" 
 
-"# This is a console app that perform basic operation of a calculator."
-"# The purpose of writing this is to understand the basic concept and logic of c# language and creating the calculator app using those concept."
+This is a console app that perform basic operation of a calculator.
+
+The purpose of writing this is to understand the basic concept and logic of c# language and creating the calculator app using those concept.
 
 
 Interpolation: allows developers to insert variables or expressions into string literals.
