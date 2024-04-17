@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\dotNetTraining\\CalculatorApp\\CalculatorApp\\CalculatorApp.csproj",
+      "projectUniqueName": "E:\\dotNetTraining\\Calculator_App\\CalculatorApp\\CalculatorApp\\CalculatorApp.csproj",
       "projectName": "CalculatorApp",
-      "projectPath": "E:\\dotNetTraining\\CalculatorApp\\CalculatorApp\\CalculatorApp.csproj",
+      "projectPath": "E:\\dotNetTraining\\Calculator_App\\CalculatorApp\\CalculatorApp\\CalculatorApp.csproj",
       "packagesPath": "C:\\Users\\wintech\\.nuget\\packages\\",
-      "outputPath": "E:\\dotNetTraining\\CalculatorApp\\CalculatorApp\\obj\\",
+      "outputPath": "E:\\dotNetTraining\\Calculator_App\\CalculatorApp\\CalculatorApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wintech\\AppData\\Roaming\\NuGet\\NuGet.Config",

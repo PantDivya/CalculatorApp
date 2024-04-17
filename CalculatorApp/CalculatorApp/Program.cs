@@ -8,22 +8,35 @@ Console.WriteLine("4. Division");
 
 #region performOperation
 
-string operation = Console.ReadLine();
+int operation = int.Parse( Console.ReadLine());
+int result;
 
-if (operation == "1")
+Console.WriteLine("Provide first input:");
+int first = int.Parse(Console.ReadLine());
+
+
+Console.WriteLine("Provide Second input:");
+int second = int.Parse(Console.ReadLine());
+
+if (operation == 1)
 {
-
+    result = first + second;   
+    Console.WriteLine($"Sum : " + result);
+}else if (operation == 2)
+{
+    result = first - second;
+    Console.WriteLine($"Difference : " + result);
+}else if(operation == 3)
+{
+    result= first * second;
+    Console.WriteLine($"Product : " + result);
+}else if(operation == 4)
+{
+    result = first / second;
+    Console.WriteLine($"division : " + result);
+}else
+{
+    Console.WriteLine("Invalid Selection");
 }
 
 #endregion
-
-Console.WriteLine("Provide first input:");
-int first = int.Parse( Console.ReadLine());
-
-Console.WriteLine("Provide Second input:");
-int second = int.Parse( Console.ReadLine());
-
-
-int sum = first + second;
-
-Console.WriteLine($"Your sum is: {sum}");
