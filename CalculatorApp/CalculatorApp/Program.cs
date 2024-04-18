@@ -1,42 +1,89 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
 Console.WriteLine("Welcome to MyCalculator App");
-Console.WriteLine("Please provide any operation");
-Console.WriteLine("1. Addition");
-Console.WriteLine("2. Subtraction");
-Console.WriteLine("3. Multiplication");
-Console.WriteLine("4. Division");
 
 #region performOperation
-
-int operation = int.Parse( Console.ReadLine());
 int result;
 
-Console.WriteLine("Provide first input:");
-int first = int.Parse(Console.ReadLine());
+bool userOperation = true;
+while (userOperation) 
+{
+    DisplayMessage();
+
+    int userOption = ReadUserInput();
+    if (userOption == 6)
+    {
+        break;
+    }
+
+    Console.WriteLine("Provide first input:");
+    int first = int.Parse(Console.ReadLine());
 
 
-Console.WriteLine("Provide Second input:");
-int second = int.Parse(Console.ReadLine());
+    Console.WriteLine("Provide Second input:");
+    int second = int.Parse(Console.ReadLine());
 
-if (operation == 1)
+    CalculateOperation(userOption, first, second);
+   
+}
+
+#endregion
+
+
+
+#region Methods
+void CalculateOperation(int userOption, int first, int second)
 {
-    result = first + second;   
-    Console.WriteLine($"Sum : " + result);
-}else if (operation == 2)
+    if (userOption == 1)
+    {
+        result = first + second;
+        Console.WriteLine($"Sum : {result} ");
+    }
+    else if (userOption == 2)
+    {
+        result = first - second;
+        Console.WriteLine($"Difference : {result} ");
+    }
+    else if (userOption == 3)
+    {
+        result = first * second;
+        Console.WriteLine($"Product : {result} ");
+    }
+    else if (userOption == 4)
+    {
+        result = first / second;
+        Console.WriteLine($"division : {result} ");
+    }
+    else if (userOption == 5)
+    {
+        for(int  i = 1; i <= second; i++)
+        {
+            Console.WriteLine($" {first} * {i} = {first*i} ");
+        }
+        
+    }
+    else
+    {
+        Console.WriteLine("Invalid Selection");
+    }
+}
+
+void DisplayMessage()
 {
-    result = first - second;
-    Console.WriteLine($"Difference : " + result);
-}else if(operation == 3)
+    Console.WriteLine("Please provide any operation");
+    Console.WriteLine("1. Addition");
+    Console.WriteLine("2. Subtraction");
+    Console.WriteLine("3. Multiplication");
+    Console.WriteLine("4. Division");
+    Console.WriteLine("5. Product table");
+    Console.WriteLine("6. Exit");
+}
+
+int ReadUserInput()
 {
-    result= first * second;
-    Console.WriteLine($"Product : " + result);
-}else if(operation == 4)
-{
-    result = first / second;
-    Console.WriteLine($"division : " + result);
-}else
-{
-    Console.WriteLine("Invalid Selection");
+    int operation = int.Parse(Console.ReadLine());
+   
+    return operation ;
 }
 
 #endregion

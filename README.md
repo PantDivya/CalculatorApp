@@ -6,7 +6,7 @@ The purpose of writing this is to understand the basic concept and logic of c# l
 
 
 <b> Interpolation:</b> Allows developers to insert variables or expressions into string literals. <br />
-Example: Console.WriteLine($"Hello world!!!" + Name); </br>
+Example: Console.WriteLine($"Hello world!!! {Name}" ); </br>
 ...In this example "Name" is variable which is inserted wich the sting "Hello world!!!"...
 
 <b>Data type, memory and their range: </b> <br />
@@ -72,3 +72,4 @@ Example: Console.WriteLine($"Hello world!!!" + Name); </br>
 		<td>Stores true or false values</td>
 	</tr>
 </table>
+
