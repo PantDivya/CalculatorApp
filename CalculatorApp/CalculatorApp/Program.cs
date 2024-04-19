@@ -1,30 +1,55 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using CalculatorApp;
+
 Console.WriteLine("Welcome to MyCalculator App");
+
+#region objectInstances
+Instruction instruction = new Instruction();
+
+#endregion
 
 #region performOperation
 int result;
+string operationType="";
+int userOption;
+
 
 bool userOperation = true;
 while (userOperation) 
 {
-    DisplayMessage();
-
-    int userOption = ReadUserInput();
+    //DisplayMessage();
+    instruction.GetCoreInstruction();
+    //method call for user input for selecting operation 
+    userOption = ReadUserInputOperation();
+    //condition for exit
     if (userOption == 6)
     {
         break;
     }
+     string operation = ReturnOperationType(userOption);
+    instruction.GetSubCoreInstruction(operation);
 
-    Console.WriteLine("Provide first input:");
+
+    //method call for arry input value
+    int[] UserInput = ReadUserInput();
+    //print n number of input
+    for(int i = 0; i < UserInput.Length; i++)
+    {
+        Console.WriteLine(UserInput[i]);
+    }
+
+    //Two level of input 
+    /*Console.WriteLine("Provide first input:");
     int first = int.Parse(Console.ReadLine());
 
 
     Console.WriteLine("Provide Second input:");
-    int second = int.Parse(Console.ReadLine());
+    int second = int.Parse(Console.ReadLine());*/
 
-    CalculateOperation(userOption, first, second);
-   
+    //method call for calculation 
+    /* CalculateOperation(userOption, first, second);*/
+
 }
 
 #endregion
@@ -79,11 +104,49 @@ void DisplayMessage()
     Console.WriteLine("6. Exit");
 }
 
-int ReadUserInput()
+int ReadUserInputOperation()
 {
     int operation = int.Parse(Console.ReadLine());
-   
-    return operation ;
+    return operation;
+}
+string ReturnOperationType(int userOption)
+{
+    //select operation and show instruction for level of input
+    if (userOption == 1)
+    {
+        operationType = "Addition";
+    }
+    else if (userOption == 2)
+    {
+        operationType = "Subtraction";
+    }
+    else if (userOption == 3)
+    {
+        operationType = "Multiplication";
+    }
+    else if (userOption == 4)
+    {
+        operationType = "Division";
+    }
+    return operationType;
+}
+int[] ReadUserInput()
+{
+    //Read n number of input
+    /*Console.WriteLine("how many input do you want? ");*/
+    Console.WriteLine("Enter your inputs: ");
+
+    string n = Console.ReadLine();
+
+    string[] inputs = n.Split(",");
+    int[] inputValue = new int[inputs.Length];
+    for(int i = 0; i< inputs.Length; i++)
+    {
+        inputValue[i] = int.Parse(inputs[i]);
+
+    }
+    return inputValue;
+
 }
 
 #endregion

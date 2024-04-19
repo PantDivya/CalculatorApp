@@ -73,3 +73,49 @@ Example: Console.WriteLine($"Hello world!!! {Name}" ); </br>
 	</tr>
 </table>
 
+<b>csv: comma seperated value </b><br />
+CSV, or Comma-Separated Values, is a file format used to store data in a structured way<br />
+To read a CSV file in C#, we can use the StreamReader class. The StreamReader class allows us to read text from a file.<br />
+ 
+add with two level input
+add with three level input
+add with n level of input
+
+log maintain 
+
+try__catch__finally
+
+exception
+
+field and properties
+
+StackTrace
+
+Task:
+1.Display instruction message:
+	->Display core instruction: GetCoreInstructionMessage() (Add, sub, multiply, divide)
+	->Display sub core instruction. GetSubCoreInstruction(string operationType)
+2.GetUserInput()
+	2.1 Two level input: GetTwoLevelInputFromUser()
+	2.2 three level input: GetThreeLevelInputFromUser()
+	2.3 n number of input: int[] GetNNumberOfInput()
+3.Perform Operation
+	-->Addition
+		--->Add(first,second): first+second
+		--->Add(first,second,third): first+second+third
+		--->Add(int[] number): 1.1 Iterate
+							   1.2 Sum
+	-->Subtraction
+	-->Division
+	-->Multiplication
+
+
+View:
+Please choose below operation:
+1.Addition
+2.subtraction
+3.multiply
+4.Division
+
+1
+
