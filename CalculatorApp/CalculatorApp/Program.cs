@@ -13,6 +13,9 @@ Instruction instruction = new Instruction();
 int result;
 string operationType="";
 int userOption;
+string inputLevel;
+int[] userInput ;
+/*int[] UserInput;*/
 
 
 bool userOperation = true;
@@ -30,25 +33,20 @@ while (userOperation)
      string operation = ReturnOperationType(userOption);
     instruction.GetSubCoreInstruction(operation);
 
+    inputLevel = ReadUserInputlevel();
 
-    //method call for arry input value
-    int[] UserInput = ReadUserInput();
-    //print n number of input
-    for(int i = 0; i < UserInput.Length; i++)
+    userInput = UserInputForOperation(inputLevel);
+
+        //print n number of input
+    for(int i = 0; i < userInput.Length; i++)
     {
-        Console.WriteLine(UserInput[i]);
+        Console.WriteLine(userInput[i]);
     }
 
-    //Two level of input 
-    /*Console.WriteLine("Provide first input:");
-    int first = int.Parse(Console.ReadLine());
-
-
-    Console.WriteLine("Provide Second input:");
-    int second = int.Parse(Console.ReadLine());*/
+    
 
     //method call for calculation 
-    /* CalculateOperation(userOption, first, second);*/
+    CalculateOperation(inputLevel, userInput);
 
 }
 
@@ -57,14 +55,18 @@ while (userOperation)
 
 
 #region Methods
-void CalculateOperation(int userOption, int first, int second)
+void CalculateOperation(string inputLevel, int[] userInput)
 {
-    if (userOption == 1)
+    if (inputLevel == "1.1")
     {
-        result = first + second;
-        Console.WriteLine($"Sum : {result} ");
+        int sum = 0;
+        for (int i = 0; i < userInput.Length; i++)
+        {
+            sum = +userInput[i];
+            Console.WriteLine($"The of {userInput.Length} number of inputs: {sum}");
+        }
     }
-    else if (userOption == 2)
+    /*else if (userOption == 2)
     {
         result = first - second;
         Console.WriteLine($"Difference : {result} ");
@@ -81,33 +83,28 @@ void CalculateOperation(int userOption, int first, int second)
     }
     else if (userOption == 5)
     {
-        for(int  i = 1; i <= second; i++)
+        for (int i = 1; i <= second; i++)
         {
-            Console.WriteLine($" {first} * {i} = {first*i} ");
+            Console.WriteLine($" {first} * {i} = {first * i} ");
         }
-        
-    }
+
+    }*/
     else
     {
         Console.WriteLine("Invalid Selection");
     }
 }
 
-void DisplayMessage()
-{
-    Console.WriteLine("Please provide any operation");
-    Console.WriteLine("1. Addition");
-    Console.WriteLine("2. Subtraction");
-    Console.WriteLine("3. Multiplication");
-    Console.WriteLine("4. Division");
-    Console.WriteLine("5. Product table");
-    Console.WriteLine("6. Exit");
-}
-
 int ReadUserInputOperation()
 {
     int operation = int.Parse(Console.ReadLine());
     return operation;
+}
+
+string ReadUserInputlevel()
+{
+    string inputLevel = Console.ReadLine();
+    return inputLevel;
 }
 string ReturnOperationType(int userOption)
 {
@@ -130,10 +127,41 @@ string ReturnOperationType(int userOption)
     }
     return operationType;
 }
-int[] ReadUserInput()
+int[] GetTwoLevelInput()
+{
+    //Two level of input 
+    Console.WriteLine("Enter your inputs: ");
+
+    string n = Console.ReadLine();
+
+    string[] inputs = n.Split(",");
+    int[] inputValue = new int[inputs.Length];
+    for (int i = 0; i < 2; i++)
+    {
+        inputValue[i] = int.Parse(inputs[i]);
+
+    }
+    return inputValue;
+}
+
+int[] GetThreeLevelInput()
+{
+    //Three level of input
+    Console.WriteLine("Enter your inputs: ");
+
+    string n = Console.ReadLine();
+
+    string[] inputs = n.Split(",");
+    int[] inputValue = new int[inputs.Length];
+    for (int i = 0; i < 3; i++)
+    {
+        inputValue[i] = int.Parse(inputs[i]);
+    }
+    return inputValue;
+}
+int[] GetNNumberOfInput()
 {
     //Read n number of input
-    /*Console.WriteLine("how many input do you want? ");*/
     Console.WriteLine("Enter your inputs: ");
 
     string n = Console.ReadLine();
@@ -149,4 +177,29 @@ int[] ReadUserInput()
 
 }
 
+
+int[] UserInputForOperation(string inputLevel)
+{
+    int[] UserInput = new int[0];
+    if (inputLevel == "1.1")
+    {
+        Console.WriteLine("get 2 level input");
+        UserInput = GetTwoLevelInput();
+    }
+    else if (inputLevel == "1.2")
+    {
+        Console.WriteLine("get 3 level input");
+        UserInput = GetThreeLevelInput();
+    }
+    else if (inputLevel == "1.3")
+    {
+        Console.WriteLine("get n level of input");
+        UserInput = GetNNumberOfInput();
+    }
+    else
+    {
+        Console.WriteLine("Invalid Input");
+    }
+    return UserInput;
+}
 #endregion

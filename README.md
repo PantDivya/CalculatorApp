@@ -106,7 +106,7 @@ Task:
 		--->Add(int[] number): 1.1 Iterate
 							   1.2 Sum
 	-->Subtraction
-	-->Division
+	-->Division 
 	-->Multiplication
 
 
