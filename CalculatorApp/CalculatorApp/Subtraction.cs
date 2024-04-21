@@ -23,14 +23,13 @@ internal class Subtraction
     }
     public int OperationForNLevelInput(int[] userInput, int result)
     {
+        int i = 0;
         int n = userInput.Length;
-        int[] difference = new int[n-1];   
-            for (int i = 0; i < n; i++)
-            {
-            difference[i] = userInput[i+1] - userInput[i];
-            }
-            result = difference[n - 1];
-            
+        result = userInput[0];
+        for (i = 1; i < n; i++)
+        {
+            result -= userInput[i];
+        }
         
         Console.WriteLine($"The difference of given {n} number of inputs: {result}");
         return result;
