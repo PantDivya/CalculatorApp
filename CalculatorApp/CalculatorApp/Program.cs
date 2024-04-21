@@ -19,36 +19,43 @@ string operationType="";
 int userOption;
 string inputLevel;
 int[] userInput ;
-/*int[] UserInput;*/
+
 
 
 bool userOperation = true;
 while (userOperation) 
 {
-    instruction.GetCoreInstruction();
-    //method call for user input for selecting operation 
-    userOption = ReadUserInputOperation();
-    //condition for exit
-    if (userOption == 6)
+    try
     {
-        break;
-    }
-     string operation = ReturnOperationType(userOption);
-    instruction.GetSubCoreInstruction(operation);
+        instruction.GetCoreInstruction();
+        //method call for user input for selecting operation 
+        userOption = ReadUserInputOperation();
+        //condition for exit
+        if (userOption == 6)
+        {
+            break;
+        }
+        string operation = ReturnOperationType(userOption);
+        instruction.GetSubCoreInstruction(operation);
 
-    inputLevel = ReadUserInputlevel();
+        inputLevel = ReadUserInputlevel();
 
-    userInput = UserInputForOperation(inputLevel);
+        userInput = UserInputForOperation(inputLevel);
 
         //print n number of input
-    for(int i = 0; i < userInput.Length; i++)
-    {
-        Console.WriteLine(userInput[i]);
+        for (int i = 0; i < userInput.Length; i++)
+        {
+            Console.WriteLine(userInput[i]);
+        }
+
+        //method call for calculation 
+        CalculateOperation(inputLevel, userInput);
+
     }
-
-    //method call for calculation 
-    CalculateOperation(inputLevel, userInput);
-
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex);
+    }
 }
 
 #endregion
@@ -58,66 +65,72 @@ while (userOperation)
 #region Methods
 void CalculateOperation(string inputLevel, int[] userInput)
 {
-    if (inputLevel == "1.1")
+    try
     {
-        if (userOption == 1)
+        if (inputLevel == "1.1")
         {
-            addition.OperationForTwoLevelInput(userInput, result);
+            if (userOption == 1)
+            {
+                addition.OperationForTwoLevelInput(userInput, result);
+            }
+            else if (userOption == 2)
+            {
+                subtraction.OperationForTwoLevelInput(userInput, result);
+            }
+            else if (userOption == 3)
+            {
+                multiplication.OperationForTwoLevelInput(userInput, result);
+            }
+            else if (userOption == 4)
+            {
+                divide.OperationForTwoLevelInput(userInput, result);
+            }
         }
-        else if (userOption == 2)
+        else if (inputLevel == "1.2")
         {
-            subtraction.OperationForTwoLevelInput(userInput, result);
+            if (userOption == 1)
+            {
+                addition.OperationForThreeLevelInput(userInput, result);
+            }
+            else if (userOption == 2)
+            {
+                subtraction.OperationForThreeLevelInput(userInput, result);
+            }
+            else if (userOption == 3)
+            {
+                multiplication.OperationForThreeLevelInput(userInput, result);
+            }
+            else if (userOption == 4)
+            {
+                divide.OperationForThreeLevelInput(userInput, result);
+            }
         }
-        else if (userOption == 3)
+        else if (inputLevel == "1.3")
         {
-            multiplication.OperationForTwoLevelInput(userInput, result);
+            if (userOption == 1)
+            {
+                addition.OperationForNLevelInput(userInput, result);
+            }
+            else if (userOption == 2)
+            {
+                subtraction.OperationForNLevelInput(userInput, result);
+            }
+            else if (userOption == 3)
+            {
+                multiplication.OperationForNLevelInput(userInput, result);
+            }
+            else if (userOption == 4)
+            {
+                divide.OperationForNLevelInput(userInput, result);
+            }
         }
-        else if (userOption == 4)
+        else
         {
-            divide.OperationForTwoLevelInput(userInput, result);
+            Console.WriteLine("Invalid Selection");
         }
-    }
-    else if (inputLevel == "1.2")
+    }catch(Exception e)
     {
-        if (userOption == 1)
-        {
-            addition.OperationForThreeLevelInput(userInput, result);
-        }
-        else if (userOption == 2)
-        {
-            subtraction.OperationForThreeLevelInput(userInput, result);
-        }
-        else if (userOption == 3)
-        {
-            multiplication.OperationForThreeLevelInput(userInput,result);
-        }
-        else if (userOption == 4)
-        {
-            divide.OperationForThreeLevelInput(userInput, result);
-        }
-    }
-    else if (inputLevel == "1.3")
-    {
-        if (userOption == 1)
-        {
-            addition.OperationForNLevelInput(userInput, result); 
-        }
-        else if (userOption == 2)
-        {
-            subtraction.OperationForNLevelInput (userInput, result);
-        }
-        else if (userOption == 3)
-        {
-            multiplication.OperationForNLevelInput(userInput , result); 
-        }
-        else if (userOption == 4)
-        {
-            divide.OperationForNLevelInput (userInput , result);
-        }
-    }
-    else
-    {
-        Console.WriteLine("Invalid Selection");
+        Console.WriteLine(e);
     }
 }
 
@@ -134,22 +147,29 @@ string ReadUserInputlevel()
 }
 string ReturnOperationType(int userOption)
 {
-    //select operation and show instruction for level of input
-    if (userOption == 1)
+    try
     {
-        operationType = "Addition";
-    }
-    else if (userOption == 2)
+        //select operation and show instruction for level of input
+        if (userOption == 1)
+        {
+            operationType = "Addition";
+        }
+        else if (userOption == 2)
+        {
+            operationType = "Subtraction";
+        }
+        else if (userOption == 3)
+        {
+            operationType = "Multiplication";
+        }
+        else if (userOption == 4)
+        {
+            operationType = "Division";
+        }
+   
+    }catch(Exception e)
     {
-        operationType = "Subtraction";
-    }
-    else if (userOption == 3)
-    {
-        operationType = "Multiplication";
-    }
-    else if (userOption == 4)
-    {
-        operationType = "Division";
+        Console.WriteLine(e);
     }
     return operationType;
 }
@@ -207,24 +227,30 @@ int[] GetNNumberOfInput()
 int[] UserInputForOperation(string inputLevel)
 {
     int[] UserInput = new int[0];
-    if (inputLevel == "1.1")
+    try
     {
-        Console.WriteLine("get 2 level input");
-        UserInput = GetTwoLevelInput();
-    }
-    else if (inputLevel == "1.2")
+        if (inputLevel == "1.1")
+        {
+            Console.WriteLine("get 2 level input");
+            UserInput = GetTwoLevelInput();
+        }
+        else if (inputLevel == "1.2")
+        {
+            Console.WriteLine("get 3 level input");
+            UserInput = GetThreeLevelInput();
+        }
+        else if (inputLevel == "1.3")
+        {
+            Console.WriteLine("get n level of input");
+            UserInput = GetNNumberOfInput();
+        }
+        else
+        {
+            Console.WriteLine("Invalid Input");
+        }
+    }catch(Exception e)
     {
-        Console.WriteLine("get 3 level input");
-        UserInput = GetThreeLevelInput();
-    }
-    else if (inputLevel == "1.3")
-    {
-        Console.WriteLine("get n level of input");
-        UserInput = GetNNumberOfInput();
-    }
-    else
-    {
-        Console.WriteLine("Invalid Input");
+        Console.WriteLine(e);
     }
     return UserInput;
 }
