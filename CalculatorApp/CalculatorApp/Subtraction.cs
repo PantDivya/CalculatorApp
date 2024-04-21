@@ -23,10 +23,9 @@ internal class Subtraction
     }
     public int OperationForNLevelInput(int[] userInput, int result)
     {
-        int i = 0;
         int n = userInput.Length;
         result = userInput[0];
-        for (i = 1; i < n; i++)
+        for (int i = 1; i < n; i++)
         {
             result -= userInput[i];
         }

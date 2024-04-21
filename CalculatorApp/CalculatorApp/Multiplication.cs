@@ -25,11 +25,13 @@ internal class Multiplication
     }
     public int OperationForNLevelInput(int[] userInput, int result)
     {
-        for (int i = 0; i < 2; i++)
+        int n = userInput.Length;
+        result = userInput[0];
+        for (int i = 1; i < n; i++)
         {
-            result = userInput[0] * userInput[1];
+            result *= userInput[i];
         }
-        Console.WriteLine($"The product of given three number of inputs: {result}");
+        Console.WriteLine($"The product of given {n} number of inputs: {result}");
 
         return result;
     }
