@@ -6,11 +6,15 @@ Console.WriteLine("Welcome to MyCalculator App");
 
 #region objectInstances
 Instruction instruction = new Instruction();
+Addition addition = new Addition();
+Subtraction subtraction = new Subtraction();
+Multiplication multiplication = new Multiplication();
+Division divide = new Division();
 
 #endregion
 
 #region performOperation
-int result;
+int result = 0;
 string operationType="";
 int userOption;
 string inputLevel;
@@ -21,7 +25,6 @@ int[] userInput ;
 bool userOperation = true;
 while (userOperation) 
 {
-    //DisplayMessage();
     instruction.GetCoreInstruction();
     //method call for user input for selecting operation 
     userOption = ReadUserInputOperation();
@@ -43,8 +46,6 @@ while (userOperation)
         Console.WriteLine(userInput[i]);
     }
 
-    
-
     //method call for calculation 
     CalculateOperation(inputLevel, userInput);
 
@@ -59,36 +60,61 @@ void CalculateOperation(string inputLevel, int[] userInput)
 {
     if (inputLevel == "1.1")
     {
-        int sum = 0;
-        for (int i = 0; i < userInput.Length; i++)
+        if (userOption == 1)
         {
-            sum = +userInput[i];
-            Console.WriteLine($"The of {userInput.Length} number of inputs: {sum}");
+            addition.OperationForTwoLevelInput(userInput, result);
+        }
+        else if (userOption == 2)
+        {
+            subtraction.OperationForTwoLevelInput(userInput, result);
+        }
+        else if (userOption == 3)
+        {
+            multiplication.OperationForTwoLevelInput(userInput, result);
+        }
+        else if (userOption == 4)
+        {
+            divide.OperationForTwoLevelInput(userInput, result);
         }
     }
-    /*else if (userOption == 2)
+    else if (inputLevel == "1.2")
     {
-        result = first - second;
-        Console.WriteLine($"Difference : {result} ");
-    }
-    else if (userOption == 3)
-    {
-        result = first * second;
-        Console.WriteLine($"Product : {result} ");
-    }
-    else if (userOption == 4)
-    {
-        result = first / second;
-        Console.WriteLine($"division : {result} ");
-    }
-    else if (userOption == 5)
-    {
-        for (int i = 1; i <= second; i++)
+        if (userOption == 1)
         {
-            Console.WriteLine($" {first} * {i} = {first * i} ");
+            addition.OperationForThreeLevelInput(userInput, result);
         }
-
-    }*/
+        else if (userOption == 2)
+        {
+            subtraction.OperationForThreeLevelInput(userInput, result);
+        }
+        else if (userOption == 3)
+        {
+            multiplication.OperationForThreeLevelInput(userInput,result);
+        }
+        else if (userOption == 4)
+        {
+            divide.OperationForThreeLevelInput(userInput, result);
+        }
+    }
+    else if (inputLevel == "1.3")
+    {
+        if (userOption == 1)
+        {
+            addition.OperationForNLevelInput(userInput, result); 
+        }
+        else if (userOption == 2)
+        {
+            subtraction.OperationForNLevelInput (userInput, result);
+        }
+        else if (userOption == 3)
+        {
+            multiplication.OperationForNLevelInput(userInput , result); 
+        }
+        else if (userOption == 4)
+        {
+            divide.OperationForNLevelInput (userInput , result);
+        }
+    }
     else
     {
         Console.WriteLine("Invalid Selection");
