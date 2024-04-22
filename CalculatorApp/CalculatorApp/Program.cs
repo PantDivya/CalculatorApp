@@ -10,6 +10,7 @@ Addition addition = new Addition();
 Subtraction subtraction = new Subtraction();
 Multiplication multiplication = new Multiplication();
 Division divide = new Division();
+ReadWrite readWrite = new ReadWrite();
 
 #endregion
 
@@ -42,15 +43,12 @@ while (userOperation)
 
         userInput = UserInputForOperation(inputLevel);
 
-        //print n number of input
-        for (int i = 0; i < userInput.Length; i++)
-        {
-            Console.WriteLine(userInput[i]);
-        }
-
+        
         //method call for calculation 
         CalculateOperation(inputLevel, userInput);
 
+        readWrite.WriteFile();
+        readWrite.ReadFile();
     }
     catch (Exception ex)
     {

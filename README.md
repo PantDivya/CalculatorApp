@@ -73,49 +73,65 @@ Example: Console.WriteLine($"Hello world!!! {Name}" ); </br>
 	</tr>
 </table>
 
-<b>csv: comma seperated value </b><br />
+<b>Topic to understand:</b><br />
+<b>1.csv: comma seperated value </b><br />
 CSV, or Comma-Separated Values, is a file format used to store data in a structured way<br />
-To read a CSV file in C#, we can use the StreamReader class. The StreamReader class allows us to read text from a file.<br />
- 
-add with two level input
-add with three level input
-add with n level of input
+To read a CSV file in C#, we can use the StreamReader class. The StreamReader class allows us to read text from a file.<br /><br />
+<b>2.Input(Console.ReadLine) </b><br />
+add with two level input<br />
+add with three level input<br />
+add with n level of input<br /><br />
 
-log maintain 
+<b>Task to compelete:</b><br />
+1.log maintain <br />
 
-try__catch__finally
+2.try__catch__finally<br />
 
-exception
+3.exception<br />
 
-field and properties
+4.field and properties<br />
 
-StackTrace
+5.StackTrace<br />
 
-Task:
-1.Display instruction message:
-	->Display core instruction: GetCoreInstructionMessage() (Add, sub, multiply, divide)
-	->Display sub core instruction. GetSubCoreInstruction(string operationType)
-2.GetUserInput()
-	2.1 Two level input: GetTwoLevelInputFromUser()
-	2.2 three level input: GetThreeLevelInputFromUser()
-	2.3 n number of input: int[] GetNNumberOfInput()
-3.Perform Operation
-	-->Addition
-		--->Add(first,second): first+second
-		--->Add(first,second,third): first+second+third
-		--->Add(int[] number): 1.1 Iterate
-							   1.2 Sum
-	-->Subtraction
-	-->Division 
-	-->Multiplication
+<b>Task:</b><br /><br />
+1.Display instruction message:<br />
+	->Display core instruction: GetCoreInstructionMessage() (Add, sub, multiply, divide)<br />
+	->Display sub core instruction. GetSubCoreInstruction(string operationType)<br />
+2.GetUserInput()<br />
+	2.1 Two level input: GetTwoLevelInputFromUser()<br />
+	2.2 three level input: GetThreeLevelInputFromUser()<br />
+	2.3 n number of input: int[] GetNNumberOfInput()<br />
+3.Perform Operation<br />
+	-->Addition<br />
+		--->Add(first,second): first+second<br />
+		--->Add(first,second,third): first+second+third<br />
+		--->Add(int[] number): 1.1 Iterate<br />
+							   1.2 Sum<br />
+	-->Subtraction<br />
+	-->Division <br />
+	-->Multiplication<br />
 
 
-View:
-Please choose below operation:
-1.Addition
-2.subtraction
-3.multiply
-4.Division
+View:<br />
+Please choose below operation:<br />
+1.Addition<br />
+2.subtraction<br />
+3.multiply<br />
+4.Division<br />
 
 1
+
+Task: 4/21/2024<br />
+Log File<br />
+1,Ans,5,69,88,55<br />
+
+Stream: StreamWriter (a class), StreamReader<br />
+
+program--->Stream--->notepad<br />
+
+
+What to save in log file?<br \><br />
+:)
+
+
 
