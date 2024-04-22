@@ -3,6 +3,8 @@
 using CalculatorApp;
 
 Console.WriteLine("Welcome to MyCalculator App");
+DateTime dateTime = DateTime.Now;
+Console.WriteLine(dateTime.ToString());
 
 #region objectInstances
 Instruction instruction = new Instruction();
@@ -20,10 +22,8 @@ string operationType="";
 int userOption;
 string inputLevel;
 int[] userInput ;
-
-
-
 bool userOperation = true;
+
 while (userOperation) 
 {
     try
@@ -45,9 +45,9 @@ while (userOperation)
 
         
         //method call for calculation 
-        CalculateOperation(inputLevel, userInput);
+        int Ans = CalculateOperation(inputLevel, userInput);
 
-        readWrite.WriteFile();
+        readWrite.WriteFile(userOption, operationType, inputLevel, userInput, Ans);
         readWrite.ReadFile();
     }
     catch (Exception ex)
@@ -61,7 +61,7 @@ while (userOperation)
 
 
 #region Methods
-void CalculateOperation(string inputLevel, int[] userInput)
+int CalculateOperation(string inputLevel, int[] userInput)
 {
     try
     {
@@ -69,67 +69,71 @@ void CalculateOperation(string inputLevel, int[] userInput)
         {
             if (userOption == 1)
             {
-                addition.OperationForTwoLevelInput(userInput, result);
+                result = addition.OperationForTwoLevelInput(userInput, result);  
             }
             else if (userOption == 2)
             {
-                subtraction.OperationForTwoLevelInput(userInput, result);
+                result = subtraction.OperationForTwoLevelInput(userInput, result);
             }
             else if (userOption == 3)
             {
-                multiplication.OperationForTwoLevelInput(userInput, result);
+               result = multiplication.OperationForTwoLevelInput(userInput, result);
             }
             else if (userOption == 4)
             {
-                divide.OperationForTwoLevelInput(userInput, result);
+                result = divide.OperationForTwoLevelInput(userInput, result);
             }
         }
         else if (inputLevel == "1.2")
         {
             if (userOption == 1)
             {
-                addition.OperationForThreeLevelInput(userInput, result);
+                result = addition.OperationForThreeLevelInput(userInput, result);
             }
             else if (userOption == 2)
             {
-                subtraction.OperationForThreeLevelInput(userInput, result);
+                result = subtraction.OperationForThreeLevelInput(userInput, result);
             }
             else if (userOption == 3)
             {
-                multiplication.OperationForThreeLevelInput(userInput, result);
+                result = multiplication.OperationForThreeLevelInput(userInput, result);
             }
             else if (userOption == 4)
             {
-                divide.OperationForThreeLevelInput(userInput, result);
+                result = divide.OperationForThreeLevelInput(userInput, result);
             }
         }
         else if (inputLevel == "1.3")
         {
             if (userOption == 1)
             {
-                addition.OperationForNLevelInput(userInput, result);
+                result = addition.OperationForNLevelInput(userInput, result);
             }
             else if (userOption == 2)
             {
-                subtraction.OperationForNLevelInput(userInput, result);
+                result = subtraction.OperationForNLevelInput(userInput, result);
             }
             else if (userOption == 3)
             {
-                multiplication.OperationForNLevelInput(userInput, result);
+                result = multiplication.OperationForNLevelInput(userInput, result);
             }
             else if (userOption == 4)
             {
-                divide.OperationForNLevelInput(userInput, result);
+                result = divide.OperationForNLevelInput(userInput, result);
             }
         }
         else
         {
             Console.WriteLine("Invalid Selection");
         }
-    }catch(Exception e)
+    }
+
+    catch(Exception e)
     {
         Console.WriteLine(e);
     }
+    return result;
+
 }
 
 int ReadUserInputOperation()
@@ -229,17 +233,14 @@ int[] UserInputForOperation(string inputLevel)
     {
         if (inputLevel == "1.1")
         {
-            Console.WriteLine("get 2 level input");
             UserInput = GetTwoLevelInput();
         }
         else if (inputLevel == "1.2")
         {
-            Console.WriteLine("get 3 level input");
             UserInput = GetThreeLevelInput();
         }
         else if (inputLevel == "1.3")
         {
-            Console.WriteLine("get n level of input");
             UserInput = GetNNumberOfInput();
         }
         else
@@ -252,4 +253,5 @@ int[] UserInputForOperation(string inputLevel)
     }
     return UserInput;
 }
+
 #endregion

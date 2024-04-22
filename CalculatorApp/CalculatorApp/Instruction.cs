@@ -4,7 +4,7 @@ internal class Instruction
 {
   public void GetCoreInstruction()
     {
-        Console.WriteLine("Please any below operation:");
+        Console.WriteLine("Please choose any below operation:");
         Console.WriteLine("1. Addition");
         Console.WriteLine("2. Subtraction");
         Console.WriteLine("3. Multiplication");

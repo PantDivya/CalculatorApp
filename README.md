@@ -131,7 +131,14 @@ program--->Stream--->notepad<br />
 
 
 What to save in log file?<br \><br />
-:)
+:) 
+instruction:
+    --->CoreInstruction
+	--->SubInstruction
+userInput:
+	--->input for core operation(Addition,subtaction,multiplication,Division)
+	--->input for subcore operation(2 level, 3 level and n level input)
+	--->values for operation
 
 
 
