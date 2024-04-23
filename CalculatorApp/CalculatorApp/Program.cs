@@ -45,9 +45,9 @@ while (userOperation)
 
         
         //method call for calculation 
-        int Ans = CalculateOperation(inputLevel, userInput);
+         result = CalculateOperation(inputLevel, userInput);
 
-        readWrite.WriteFile(userOption, operationType, inputLevel, userInput, Ans);
+        readWrite.WriteFile(userOption, operationType, inputLevel, userInput, result);
         readWrite.ReadFile();
     }
     catch (Exception ex)

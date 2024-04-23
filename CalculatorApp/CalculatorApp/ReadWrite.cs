@@ -5,8 +5,12 @@ internal class ReadWrite
     
     public void WriteFile(int userOption, string operationType, string inputLevel, int[] userInput, int Ans)
     {
-       
-            using (StreamWriter sw = new StreamWriter(filepath))
+        
+            if (string.IsNullOrEmpty(filepath))
+            {
+                using (StreamWriter sw = new StreamWriter(filepath)) ;
+            }
+            using (StreamWriter sw = File.AppendText(filepath))
             {
                 sw.WriteLine("Please choose any below operation:");
                 sw.WriteLine("1. Addition");
@@ -16,7 +20,7 @@ internal class ReadWrite
                 sw.WriteLine("6. Exit");
 
                 sw.WriteLine(userOption);
-
+               
                 sw.WriteLine($"1.1 {operationType} with two level of input");
                 sw.WriteLine($"1.2 {operationType} with three level of input");
                 sw.WriteLine($"1.3 {operationType} with N level of input");
@@ -28,6 +32,8 @@ internal class ReadWrite
 
                 sw.WriteLine($"The calculation for given {userInput.Length} number of inputs: {Ans}");
             }
+        
+            
         
     }
     public void ReadFile()
