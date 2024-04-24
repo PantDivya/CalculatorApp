@@ -8,7 +8,7 @@
         {
             for (int i = 0; i < 2; i++)
             {
-                result += userInput[i];
+                result = userInput[0] + userInput[1];
             }
             Console.WriteLine($"The calculation for given two number of inputs: {result}");
         }catch (Exception e)
@@ -23,7 +23,7 @@
         {
             for (int i = 0; i < 3; i++)
             {
-                result += userInput[i];
+                result = userInput[0] + userInput[1];
             }
             Console.WriteLine($"The calculation for given three number of inputs: {result}");
 
@@ -37,6 +37,7 @@
     {
         try
         {
+            result = userInput[0];
             for (int i = 0; i < userInput.Length; i++)
             {
                 result += userInput[i];

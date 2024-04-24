@@ -186,7 +186,14 @@ int[] GetTwoLevelInput()
     int[] inputValue = new int[inputs.Length];
     for (int i = 0; i < 2; i++)
     {
-        inputValue[i] = int.Parse(inputs[i]);
+        if (inputs[i] == "Ans")
+        {
+            inputValue[i] = result;
+        }
+        else
+        {
+            inputValue[i] = int.Parse(inputs[i]);
+        }
 
     }
     return inputValue;
@@ -203,7 +210,14 @@ int[] GetThreeLevelInput()
     int[] inputValue = new int[inputs.Length];
     for (int i = 0; i < 3; i++)
     {
-        inputValue[i] = int.Parse(inputs[i]);
+        if (inputs[i] == "Ans")
+        {
+            inputValue[i] = result;
+        }
+        else
+        {
+            inputValue[i] = int.Parse(inputs[i]);
+        }
     }
     return inputValue;
 }
@@ -218,7 +232,14 @@ int[] GetNNumberOfInput()
     int[] inputValue = new int[inputs.Length];
     for(int i = 0; i< inputs.Length; i++)
     {
-        inputValue[i] = int.Parse(inputs[i]);
+        if (inputs[i] == "Ans")
+        {
+            inputValue[i] = result;
+        }
+        else
+        {
+            inputValue[i] = int.Parse(inputs[i]);
+        }
 
     }
     return inputValue;
